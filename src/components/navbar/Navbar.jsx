@@ -63,7 +63,7 @@ export default function Navbar() {
               >
                 {lng === "en" ? (
                   <Flag
-                    code="USA"
+                    code="GB"
                     alt="English"
                     style={{ width: "30px", height: "40px" }}
                   />
@@ -156,7 +156,7 @@ export default function Navbar() {
                 >
                   {lng === "en" ? (
                     <Flag
-                      code="USA"
+                      code="GB"
                       alt="English"
                       style={{ width: "30px", height: "40px" }}
                       onClick={() => setIsMenuOpen(false)}

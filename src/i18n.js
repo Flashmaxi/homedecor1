@@ -154,7 +154,7 @@ i18next
             tekst: "Nazad",
           },
           zavese: {
-            naslov: "Curtains and draperies",
+            naslov: "Zavese i draperije",
             tekst1:
               "Zavese i draperije su neizostavni elemenat dekoracije svakog enterijera, bilo da je u pitanju stambeni ili poslovni prostor. Osnovna razlika između zavesa i draperija ogleda se u samom sastavu materijala od kojih se proizvode. Zavese se uglavnom prave od laganih, transparentnih i osetljivih materijala, koje za osnovni cilj imaju oplemenjivanje i davanje topline svakom prostoru. Zavese, u zavisnosti od boje, dezena i vrste materijala od kojih su napravljene, mogu i te kako da utiču na sam izgled, ali i na osećaj topline u prostoru. Zavese, pored dekorativne, imaju i funkciju regulisanja propuštanja dnevne svetlosti u prostor, kao i da, u večernjim satima, umanje transparentost unutrašnjeg prostora ka spoljašnjem.",
             tekst2:
