@@ -9,7 +9,18 @@ export default function About() {
   const ref = useReveal({ stagger: 0.1 });
 
   return (
-    <PageLayout>
+    <PageLayout
+      seo={{
+        title: "O nama — 20+ godina iskustva u opremanju enterijera",
+        description:
+          "HD Group d.o.o. — porodični atelje sa 3000+ zadovoljnih klijenata i saradnja sa vodećim svetskim brendovima (Adeko, Rasch, Marburg, FR-One, Casa Deco).",
+        keywords:
+          "Home Decor o nama, HD Group, atelje enterijera Beograd, opremanje doma, tradicija, kvalitet, salon Vračar",
+        image: "/assets/about/aboutimg.avif",
+        path: "/o-nama",
+        type: "website",
+      }}
+    >
       <section ref={ref} className="section bg-cream-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 

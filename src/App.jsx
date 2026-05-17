@@ -7,8 +7,8 @@ import Footer from "./components/footer/Footer";
 import Recenzije from "./components/testimonials/Recenzije";
 import DalisteZnali from "./components/didyouknow/DalisteZnali";
 import BrandMarquee from "./components/marquee/BrandMarquee";
+import Seo, { localBusinessSchema } from "./components/ui/Seo";
 import ReactGA from "react-ga4";
-import { Helmet } from "react-helmet";
 import "./i18n";
 
 function App() {
@@ -16,17 +16,14 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <title>Home Decor | Oplemenite svoj životni prostor</title>
-        <meta
-          name="description"
-          content="Home Decor RS - Vaš pouzdan partner za venecijanere, zavese, meblstofe i hotelski program. Pronađite savršene dekorativne elemente za vaš dom i poslovni prostor."
-        />
-        <meta
-          name="keywords"
-          content="venecijaneri, zavese, meblstofe, hotelski program, posteljine, peškiri, dekoracija, kućni tekstil, Home Decor RS"
-        />
-      </Helmet>
+      <Seo
+        title="Home Decor Beograd — zavese, draperije, tapete i hotelski program"
+        description="Atelje za enterijer i tekstil sa 20+ godina iskustva. Zavese, draperije, tapete, venecijaneri, mebl štof, garnišne i hotelski program — po meri, na Vračaru."
+        keywords="Home Decor, Home Decor Beograd, zavese po meri, draperije, tapete, venecijaneri, plise zavese, mebl štof, garnišne, posteljine, hotelski program, dekoracija enterijera, Vračar Beograd"
+        image="/assets/hero/bg.jpg"
+        path="/"
+        jsonLd={localBusinessSchema}
+      />
 
       <Navbar />
       <main>

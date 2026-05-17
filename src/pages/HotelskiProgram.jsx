@@ -8,7 +8,18 @@ export default function HotelskiProgram() {
   const ref = useReveal({ stagger: 0.1 });
 
   return (
-    <PageLayout>
+    <PageLayout
+      seo={{
+        title: "Hotelski program — Tekstilna oprema za hotele i restorane",
+        description:
+          "Kompletna tekstilna ponuda za opremanje hotela, restorana i poslovnih prostora. Posteljine, peškiri, stolnjaci, zavese, tepisi i SPA program po meri.",
+        keywords:
+          "hotelski program, oprema za hotele, posteljine za hotele, peškiri za hotele, stolnjaci, hotel decor, B2B tekstil",
+        image: "/assets/proizvodi/hotel.avif",
+        path: "/hotelski-program",
+        type: "website",
+      }}
+    >
       <section ref={ref} className="section bg-cream-50 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 

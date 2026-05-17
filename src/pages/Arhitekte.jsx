@@ -34,8 +34,19 @@ export default function Arhitekte() {
       );
   };
 
-  return (
-    <PageLayout>
+    return (
+    <PageLayout
+      seo={{
+        title: "Za arhitekte i dizajnere enterijera — Saradnja",
+        description:
+          "Specijalna ponuda za arhitekte i dizajnere enterijera. Ekskluzivne pogodnosti, posvećena podrška i pristup vodećim brendovima tekstila. Pošaljite upit.",
+        keywords:
+          "arhitekte saradnja, dizajneri enterijera, B2B Home Decor, profesionalna saradnja, tekstil za projekte, partnerstvo",
+        image: "/assets/about/aboutimg.avif",
+        path: "/arhitekte",
+        type: "website",
+      }}
+    >
       <section ref={ref} className="section bg-cream-50 relative overflow-hidden">
         <div className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 

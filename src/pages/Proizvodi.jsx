@@ -7,7 +7,18 @@ export default function Proizvodi() {
   const ref = useReveal();
 
   return (
-    <PageLayout>
+    <PageLayout
+      seo={{
+        title: "Proizvodi — Zavese, draperije, tapete, venecijaneri",
+        description:
+          "Kompletan katalog: zavese i draperije, zebra i rolo, tapete, drveni venecijaneri, plise sistemi, mebl štof, lux trakaste zavese, garnišne, posteljine i peškiri.",
+        keywords:
+          "proizvodi Home Decor, katalog zavesa, tapete katalog, venecijaneri, plise, mebl štof, garnišne, posteljine",
+        image: "/assets/proizvodi/zavese.avif",
+        path: "/proizvodi",
+        type: "website",
+      }}
+    >
       <section ref={ref} className="pt-16 lg:pt-24 pb-0 bg-cream-50 relative">
         <div className="container mx-auto text-center max-w-3xl">
           <span data-reveal className="eyebrow mb-5 inline-flex items-center">

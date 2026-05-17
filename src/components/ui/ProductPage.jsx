@@ -9,11 +9,12 @@ export default function ProductPage({
   paragraphs = [],
   image,
   photos = [],
+  seo,
 }) {
   const ref = useReveal({ stagger: 0.1 });
 
   return (
-    <PageLayout title={`Home Decor | ${title}`}>
+    <PageLayout seo={seo}>
       <section ref={ref} className="section bg-cream-50 relative overflow-hidden">
         <div className="absolute -top-32 right-0 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 

@@ -4,13 +4,34 @@ import Gallery from "../../components/ui/Gallery";
 import { Nazad } from "../../components/nazad/Nazad";
 import { useReveal } from "../../hooks/useReveal";
 import { rolo } from "../../data";
+import { productServiceSchema } from "../../components/ui/Seo";
 
 export default function ZebraiRolo() {
   const { t } = useTranslation();
   const ref = useReveal({ stagger: 0.1 });
+  const path = "/proizvodi/zebra-i-rolo";
+  const image = "/assets/proizvodi/zebra.avif";
 
   return (
-    <PageLayout title="Home Decor | Zebra i Rolo zavese">
+    <PageLayout
+      seo={{
+        title: "Zebra i Rolo zavese — Antistatičke i lake za održavanje",
+        description:
+          "Zebra zavese (dvostruki materijal, regulacija svetla) i rolo zavese — funkcionalna zaštita od sunca po meri. Ručno ili motorno upravljanje, povezivo sa smart home sistemom.",
+        keywords:
+          "zebra zavese, rolo zavese, day-night zavese, zaštita od sunca, motor za zavese, smart home zavese",
+        image,
+        path,
+        type: "product",
+        jsonLd: productServiceSchema({
+          name: "Zebra i Rolo zavese",
+          description:
+            "Zebra zavese (dvoslojne) i rolo zavese sa ručnim ili motornim upravljanjem.",
+          image,
+          path,
+        }),
+      }}
+    >
       <section ref={ref} className="section bg-cream-50 relative overflow-hidden">
         <div className="absolute -top-32 right-0 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 

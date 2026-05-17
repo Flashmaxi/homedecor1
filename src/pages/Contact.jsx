@@ -8,7 +8,18 @@ export default function Contact() {
   const ref = useReveal({ stagger: 0.1 });
 
   return (
-    <PageLayout>
+    <PageLayout
+      seo={{
+        title: "Kontakt — Salon na Vračaru, Južni bulevar 130",
+        description:
+          "Posetite naš salon na Vračaru — Južni bulevar 130, Beograd. Radno vreme pon–pet 09–20h, subota 09–16h. Telefon +381 11 64 35 570.",
+        keywords:
+          "Home Decor kontakt, Home Decor Beograd adresa, Vračar Južni bulevar 130, salon zavesa Beograd, kontakt telefon",
+        image: "/assets/hero/bg.jpg",
+        path: "/kontakt",
+        type: "website",
+      }}
+    >
       <section ref={ref} className="section bg-cream-50 relative">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
