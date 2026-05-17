@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import Logo from "../../../public/assets/hdlogo.svg";
@@ -7,9 +7,9 @@ import Logo from "../../../public/assets/hdlogo.svg";
  * Curtain-style route transition. Dark navy panels sweep down from the top,
  * the brand mark fades in centered, then everything exits downward.
  *
- * Panels are *always* rendered (never display:none) so GSAP can read their
- * starting transform reliably — toggling display caused the first transition
- * after a refresh to begin from the wrong position.
+ * Initial visibility is controlled with opacity (not transform) so GSAP fully
+ * owns the transform property — no conflict between inline CSS transforms and
+ * GSAP-managed yPercent values.
  */
 export default function PageTransition() {
   const location = useLocation();
@@ -18,6 +18,17 @@ export default function PageTransition() {
   const lineRef = useRef(null);
   const lastKey = useRef(location.key);
   const tlRef = useRef(null);
+
+  // Position panels off-screen ONCE on mount so they aren't visible
+  // even for a frame before the first transition fires.
+  useLayoutEffect(() => {
+    const panels = panelsRef.current.filter(Boolean);
+    if (panels.length) {
+      gsap.set(panels, { yPercent: -101, opacity: 0 });
+    }
+    if (logoRef.current) gsap.set(logoRef.current, { opacity: 0 });
+    if (lineRef.current) gsap.set(lineRef.current, { opacity: 0, scaleX: 0 });
+  }, []);
 
   useEffect(() => {
     if (lastKey.current === location.key) return;
@@ -31,20 +42,22 @@ export default function PageTransition() {
     const tl = gsap.timeline({
       defaults: { ease: "expo.inOut" },
       onComplete: () => {
-        // Reset to initial off-screen state — no display toggling.
-        gsap.set(panels, { yPercent: -101 });
+        // Reset state for next transition
+        gsap.set(panels, { yPercent: -101, opacity: 0 });
         gsap.set([logoRef.current, lineRef.current], { opacity: 0 });
+        gsap.set(lineRef.current, { scaleX: 0 });
         tlRef.current = null;
       },
     });
     tlRef.current = tl;
 
-    tl.set(panels, { yPercent: -101 })
+    // Initial state at start of each transition: panels off-screen above & opaque,
+    // logo + line hidden.
+    tl.set(panels, { yPercent: -101, opacity: 1 })
       .set(logoRef.current, { opacity: 0, scale: 0.92, y: 16 })
       .set(lineRef.current, { opacity: 0, scaleX: 0 })
 
-      // 1) Curtain visibly drops down — balanced easing so motion is perceptible
-      //    across the whole duration, not crammed into the first 100ms.
+      // 1) Curtain drops down — visible, balanced motion
       .to(panels, {
         yPercent: 0,
         duration: 0.7,
@@ -52,10 +65,10 @@ export default function PageTransition() {
         stagger: 0.05,
       })
 
-      // tiny beat so the eye registers full coverage before the logo
+      // tiny beat so the eye registers full coverage
       .to({}, { duration: 0.08 })
 
-      // 2) Logo + line appear OVER the now-covered screen
+      // 2) Logo + line appear over the cover
       .to(logoRef.current, {
         opacity: 1,
         scale: 1,
@@ -69,10 +82,10 @@ export default function PageTransition() {
         "-=0.35"
       )
 
-      // 3) Hold so the brand registers
+      // 3) Hold
       .to({}, { duration: 0.3 })
 
-      // 4) Logo + line exit upward
+      // 4) Logo + line exit
       .to([logoRef.current, lineRef.current], {
         opacity: 0,
         y: -10,
@@ -80,7 +93,7 @@ export default function PageTransition() {
         ease: "power2.in",
       })
 
-      // 5) Curtain slides off downward — uniformly, header clears in one motion
+      // 5) Curtain slides off downward
       .to(
         panels,
         {
@@ -95,7 +108,7 @@ export default function PageTransition() {
   }, [location.key]);
 
   const panelCount = 4;
-  const PANEL_COLOR = "#1a1d20"; // matches navbar (bg-primary)
+  const PANEL_COLOR = "#1a1d20"; // matches navbar bg-primary
 
   return (
     <div
@@ -107,7 +120,6 @@ export default function PageTransition() {
         zIndex: 200,
       }}
     >
-      {/* Curtain panels — always rendered, just translated off-screen until needed. */}
       {Array.from({ length: panelCount }).map((_, i) => (
         <div
           key={i}
@@ -116,14 +128,13 @@ export default function PageTransition() {
           style={{
             backgroundColor: PANEL_COLOR,
             marginLeft: i === 0 ? 0 : "-1px",
-            transform: "translate3d(0, -101%, 0)",
-            willChange: "transform",
+            opacity: 0,
+            willChange: "transform, opacity",
             backfaceVisibility: "hidden",
           }}
         />
       ))}
 
-      {/* Brand mark overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <img
           ref={logoRef}
@@ -135,7 +146,7 @@ export default function PageTransition() {
         <span
           ref={lineRef}
           className="block h-px w-32 lg:w-44 bg-accent mt-6 origin-center"
-          style={{ opacity: 0, transform: "scaleX(0)", willChange: "transform, opacity" }}
+          style={{ opacity: 0, willChange: "transform, opacity" }}
         />
       </div>
     </div>
