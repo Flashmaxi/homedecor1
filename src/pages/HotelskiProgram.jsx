@@ -1,54 +1,60 @@
-import { Helmet } from "react-helmet";
-import Footer from "../components/footer/Footer";
-import Navbar from "../components/navbar/Navbar";
-import { RiArrowRightLine } from "react-icons/ri";
+import { RiArrowRightUpLine, RiDownloadLine } from "react-icons/ri";
 import { useTranslation } from "react-i18next";
+import PageLayout from "../components/ui/PageLayout";
+import { useReveal } from "../hooks/useReveal";
 
 export default function HotelskiProgram() {
   const { t } = useTranslation();
+  const ref = useReveal({ stagger: 0.1 });
 
   return (
-    <>
-      <Navbar />
-      <Helmet>
-        <title>Home decor | Oplemenite svoj životni prostor</title>
-        <meta
-          name="description"
-          content="Home Decor RS - Vaš pouzdan partner za venecijanere, zavese, meblstofe i hotelski program. Pronađite savršene dekorativne elemente za vaš dom i poslovni prostor."
-        />
-        <meta
-          name="keywords"
-          content="venecijaneri, zavese, meblstofe, hotelski program, posteljine, peškiri, dekoracija, kućni tekstil, Home Decor RS"
-        />
-      </Helmet>
-      <section className="about mt-[90px] lg:mt-[200px] relative z-20 mb-[60px]">
-        <div className="container mx-auto xl:px-0">
-          <div className="flex flex-col text-center xl:flex-row xl:text-left justify-between items-center gap-8 xl:gap-[54px]">
-            <div className="flex-1 order-2 xl:order-none max-w-xl xl:max-w-[610px] flex flex-col items-center xl:items-start gap-8">
-              <h2 className="h2">{t("hotel.hotelTitle")}</h2>
-              <p className="text-[20px]">{t("hotel.hotelText")}</p>
+    <PageLayout>
+      <section ref={ref} className="section bg-cream-50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+
+        <div className="container mx-auto relative">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-20 items-center">
+            <div className="xl:col-span-7 order-2 xl:order-none">
+              <span data-reveal className="eyebrow mb-6 inline-flex items-center">
+                <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
+                B2B program
+              </span>
+              <h1 data-reveal className="display-2 mb-8">
+                {t("hotel.hotelTitle")}
+              </h1>
+              <div data-reveal className="h-px w-20 bg-accent mb-8" />
+              <p data-reveal className="lead mb-10 max-w-2xl">
+                {t("hotel.hotelText")}
+              </p>
 
               <a
+                data-reveal
                 href="/Hotel Decor katalog.pdf"
-                className="btn btn-primary"
+                className="btn-primary group"
                 download
               >
-                {t("hotel.hotelCta")}{" "}
-                <RiArrowRightLine className="text-accent" />
+                <RiDownloadLine className="text-accent text-lg" />
+                {t("hotel.hotelCta")}
+                <RiArrowRightUpLine className="text-accent text-lg transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </a>
             </div>
 
-            <div className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-[453px] xl:mx-0">
-              <img
-                className="rounded-tr-[160px] rounded-bl-[120px]"
-                src="/assets/proizvodi/hotel.avif"
-                alt=""
-              />
+            <div className="xl:col-span-5 order-1 xl:order-none">
+              <div
+                data-reveal
+                className="relative aspect-[4/5] frame-luxe"
+                style={{ borderTopRightRadius: "140px", borderBottomLeftRadius: "100px" }}
+              >
+                <img
+                  src="/assets/proizvodi/hotel.avif"
+                  alt="Hotelski program"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <Footer />
-    </>
+    </PageLayout>
   );
 }

@@ -1,29 +1,29 @@
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
+import PageLayout from "../components/ui/PageLayout";
 import Service from "../components/Usluge/Service";
 import { Nazad } from "../components/nazad/Nazad";
-import { Helmet } from "react-helmet";
+import { useReveal } from "../hooks/useReveal";
+
 export default function Proizvodi() {
+  const ref = useReveal();
+
   return (
-    <>
-      <Navbar />
-      <Helmet>
-        <title>Home decor | Oplemenite svoj životni prostor</title>
-        <meta
-          name="description"
-          content="Home Decor RS - Vaš pouzdan partner za venecijanere, zavese, meblstofe i hotelski program. Pronađite savršene dekorativne elemente za vaš dom i poslovni prostor."
-        />
-        <meta
-          name="keywords"
-          content="venecijaneri, zavese, meblstofe, hotelski program, posteljine, peškiri, dekoracija, kućni tekstil, Home Decor RS"
-        />
-      </Helmet>
-      <div className="max-w-[1920px] mx-auto bg-white overflow-hidden">
-        <div className="xl:bg-grid xl:bg-center xl:bg-repeat-y fixed top-0 bottom-0 right-0 left-0 z-10"></div>
-      </div>
+    <PageLayout>
+      <section ref={ref} className="pt-16 lg:pt-24 pb-0 bg-cream-50 relative">
+        <div className="container mx-auto text-center max-w-3xl">
+          <span data-reveal className="eyebrow mb-5 inline-flex items-center">
+            <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
+            Katalog
+            <span className="inline-block w-6 h-px bg-accent align-middle ml-3" />
+          </span>
+          <h1 data-reveal className="display-1 mb-6">Naši proizvodi</h1>
+          <p data-reveal className="lead">
+            Pažljivo birana kolekcija tekstila i dekorativnih elemenata —
+            zavese, draperije, tapete, venecijaneri i hotelski program.
+          </p>
+        </div>
+      </section>
       <Service />
       <Nazad />
-      <Footer />
-    </>
+    </PageLayout>
   );
 }

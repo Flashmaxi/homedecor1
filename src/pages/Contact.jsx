@@ -1,93 +1,109 @@
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
-import { RiMapPin2Fill, RiMailFill, RiPhoneFill } from "react-icons/ri";
-import { Helmet } from "react-helmet";
+import { RiMapPin2Line, RiMailLine, RiPhoneLine, RiTimeLine } from "react-icons/ri";
 import { useTranslation } from "react-i18next";
+import PageLayout from "../components/ui/PageLayout";
+import { useReveal } from "../hooks/useReveal";
 
-function Contact() {
+export default function Contact() {
   const { t } = useTranslation();
+  const ref = useReveal({ stagger: 0.1 });
 
   return (
-    <>
-      <Navbar />
-      <Helmet>
-        <title>Home decor | Oplemenite svoj životni prostor</title>
-        <meta
-          name="description"
-          content="Home Decor RS - Vaš pouzdan partner za venecijanere, zavese, meblstofe i hotelski program. Pronađite savršene dekorativne elemente za vaš dom i poslovni prostor."
-        />
-        <meta
-          name="keywords"
-          content="venecijaneri, zavese, meblstofe, hotelski program, posteljine, peškiri, dekoracija, kućni tekstil, Home Decor RS"
-        />
-      </Helmet>
-      <div className="max-w-[1920px] mx-auto bg-white overflow-hidden">
-        <div className="xl:bg-grid xl:bg-center xl:bg-repeat-y fixed top-0 bottom-0 right-0 left-0 z-10"></div>
-      </div>
-      <section className="container mx-auto relative z-20">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
-          <div className="max-w-2xl lg:max-w-4xl mx-auto text-center">
-            <h2 className="h2"> {t("kontakt.kontaktTitle")}</h2>
+    <PageLayout>
+      <section ref={ref} className="section bg-cream-50 relative">
+        <div className="container mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
+            <span data-reveal className="eyebrow mb-5 inline-flex items-center">
+              <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
+              Posetite nas
+            </span>
+            <h1 data-reveal className="display-2 mb-6">
+              {t("kontakt.kontaktTitle")}
+            </h1>
+            <p data-reveal className="lead">
+              Naš tim sa zadovoljstvom će vas dočekati u salonu na Vračaru, ili
+              vam odgovoriti na pitanja putem telefona i email-a.
+            </p>
           </div>
-          <div className="mt-16 lg:mt-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="rounded-lg overflow-hidden">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+            <div data-reveal className="lg:col-span-7">
+              <div className="relative aspect-[5/4] overflow-hidden" style={{ borderTopLeftRadius: "120px", borderBottomRightRadius: "80px" }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.393243998638!2d20.4844668!3d44.7931739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a707a536f248d%3A0xddf60ed519be39be!2sJu%C5%BEni%20bulevar%20130%2C%20Beograd!5e0!3m2!1sen!2srs!4v1713268008670!5m2!1sen!2srs"
-                  className="rounded-tr-[160px] rounded-bl-[90px]"
-                  width="100%"
-                  height="480"
-                  allowfullscreen=""
+                  className="absolute inset-0 w-full h-full filter grayscale"
+                  allowFullScreen=""
                   loading="lazy"
+                  title="Mapa"
                 ></iframe>
               </div>
-              <div>
-                <div className="max-w-full mx-auto rounded-lg overflow-hidden">
-                  <div className="px-6 py-4">
-                    <h3 className="h3 mb-3">{t("kontakt.kontaktAdresa")}</h3>
-                    <a
-                      className="flex items-center"
-                      href="https://www.google.com/maps/place/Ju%C5%BEni+bulevar+130,+Beograd/@44.7932961,20.4822093,17z/data=!3m1!4b1!4m5!3m4!1s0x475a707a536f248d:0xddf60ed519be39be!8m2!3d44.7932923!4d20.484398?shorturl=1"
-                      target="_blank"
-                    >
-                      <RiMapPin2Fill />
-                      <p className="ms-2 mt-1">
-                        Južni bulevar 130 Vračar, Beograd
-                      </p>
-                    </a>
-                  </div>
-                  <div className="border-t border-accent px-6 py-4">
-                    <h3 className="h3">{t("kontakt.kontaktVreme")}</h3>
-                    <p className="mt-1">Pon - pet: 09h - 20h</p>
-                    <p className="mt-1">Subota: 09h - 16h</p>
-                    <p className="mt-1">Nedelja: Zatvoreno</p>
-                  </div>
-                  <div className="border-t border-accent px-6 py-4">
-                    <h3 className="h3">{t("kontakt.kontaktBroj")}</h3>
-                    <a
-                      className="flex items-center"
-                      href="mailto:office@homedecor.rs"
-                    >
-                      <RiMailFill />
-                      <p className="ms-2 mt-1">office@homedecor.rs</p>
-                    </a>
-                    <a
-                      className="flex items-center"
-                      href="tel:+381 11 64 35 570"
-                    >
-                      <RiPhoneFill />
-                      <p className="ms-2 mt-1">+381 11 64 35 570</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
+            </div>
+
+            <div className="lg:col-span-5 space-y-8">
+              <ContactBlock
+                data-reveal
+                icon={<RiMapPin2Line className="text-accent text-2xl" />}
+                eyebrow={t("kontakt.kontaktAdresa")}
+                href="https://www.google.com/maps/place/Ju%C5%BEni+bulevar+130,+Beograd/"
+              >
+                Južni bulevar 130<br />Vračar, Beograd
+              </ContactBlock>
+
+              <ContactBlock
+                data-reveal
+                icon={<RiTimeLine className="text-accent text-2xl" />}
+                eyebrow={t("kontakt.kontaktVreme")}
+              >
+                Pon – Pet · 09h–20h<br />
+                Subota · 09h–16h<br />
+                <span className="text-ink-500">Nedelja · Zatvoreno</span>
+              </ContactBlock>
+
+              <ContactBlock
+                data-reveal
+                icon={<RiPhoneLine className="text-accent text-2xl" />}
+                eyebrow={t("kontakt.kontaktBroj")}
+                href="tel:+381 11 64 35 570"
+              >
+                +381 11 64 35 570
+              </ContactBlock>
+
+              <ContactBlock
+                data-reveal
+                icon={<RiMailLine className="text-accent text-2xl" />}
+                eyebrow="Email"
+                href="mailto:office@homedecor.rs"
+              >
+                office@homedecor.rs
+              </ContactBlock>
             </div>
           </div>
         </div>
       </section>
-      <Footer />
-    </>
+    </PageLayout>
   );
 }
 
-export default Contact;
+function ContactBlock({ icon, eyebrow, children, href, ...rest }) {
+  const Wrapper = href ? "a" : "div";
+  return (
+    <Wrapper
+      {...rest}
+      href={href}
+      target={href?.startsWith("http") ? "_blank" : undefined}
+      rel={href?.startsWith("http") ? "noreferrer" : undefined}
+      className="group flex items-start gap-5 border-t border-primary/10 pt-6 transition-all duration-300 hover:border-accent"
+    >
+      <div className="w-14 h-14 bg-cream-100 flex items-center justify-center shrink-0 group-hover:bg-accent/10 transition-colors duration-500">
+        {icon}
+      </div>
+      <div>
+        <div className="text-[11px] uppercase tracking-widest text-accent mb-2">
+          {eyebrow}
+        </div>
+        <div className="font-primary text-xl text-primary leading-snug">
+          {children}
+        </div>
+      </div>
+    </Wrapper>
+  );
+}

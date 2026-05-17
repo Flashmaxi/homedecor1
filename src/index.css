@@ -2,18 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    /* Always reserve space for the scrollbar so toggling body overflow doesn't shift content. */
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply font-secondary text-[17px] text-ink-700 bg-cream-50 antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-primary text-primary;
+    font-weight: 500;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-primary;
+  }
+}
+
+@layer components {
+  /* Typography */
+  .display-1 {
+    @apply font-primary text-display-1 font-medium;
+  }
+  .display-2 {
+    @apply font-primary text-display-2 font-medium;
+  }
+  .display-3 {
+    @apply font-primary text-display-3 font-medium;
+  }
+  .eyebrow {
+    @apply font-secondary text-eyebrow uppercase font-medium text-accent;
+  }
+  .lead {
+    @apply text-[18px] md:text-[19px] leading-relaxed text-ink-500 font-light;
+  }
+
+  /* Legacy aliases (some pages still use these) */
+  .h1 { @apply display-1; }
+  .h2 { @apply display-2; }
+  .h3 { @apply display-3; }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-[14px] font-medium tracking-widest uppercase transition-all duration-500 ease-out relative overflow-hidden;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-cream-50 hover:bg-primary-hover;
+  }
+  .btn-accent {
+    @apply btn bg-accent text-primary hover:bg-accent-hover;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-primary border border-primary/20 hover:border-accent hover:text-accent;
+  }
+  .btn-link {
+    @apply inline-flex items-center gap-2 text-[13px] uppercase tracking-widest font-medium text-primary transition-colors duration-300 hover:text-accent;
+  }
+  .btn-link::after {
+    content: "";
+    @apply h-px w-8 bg-current transition-all duration-500;
+  }
+  .btn-link:hover::after {
+    @apply w-14;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-20 lg:py-32 relative;
+  }
+  .section-tight {
+    @apply py-14 lg:py-20 relative;
+  }
+
+  /* Divider */
+  .divider-gold {
+    @apply h-px w-12 bg-accent inline-block;
+  }
+
+  /* Form */
+  .input-luxe {
+    @apply w-full bg-transparent border-0 border-b border-ink-900/15 py-4 px-1 text-[16px] text-primary placeholder-transparent focus:outline-none focus:border-accent transition-colors duration-300;
+  }
+  .label-luxe {
+    @apply absolute left-1 top-4 text-[14px] text-ink-500 transition-all duration-300 pointer-events-none uppercase tracking-widest font-medium;
+  }
+  .field-luxe {
+    @apply relative;
+  }
+  .field-luxe input:focus ~ .label-luxe,
+  .field-luxe textarea:focus ~ .label-luxe,
+  .field-luxe input:not(:placeholder-shown) ~ .label-luxe,
+  .field-luxe textarea:not(:placeholder-shown) ~ .label-luxe {
+    @apply -top-2 text-[11px] text-accent;
+  }
+
+  /* Reveal helpers (used with GSAP / native) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  /* Image frame: thin gold inner border */
+  .frame-luxe {
+    @apply relative overflow-hidden;
+  }
+  .frame-luxe::after {
+    content: "";
+    @apply absolute inset-4 border border-cream-50/30 pointer-events-none;
+  }
+
+  /* Underline link */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: background-size 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Grain texture overlay (subtle) */
+  .grain::before {
+    content: "";
+    @apply absolute inset-0 pointer-events-none opacity-[0.03];
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+}
+
+/* Gallery (legacy) */
 .images-container {
   max-width: 1200px;
   margin: 2rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem;
-  max-height: 400px;
 }
 
 .image {
   width: 100%;
-  height: 20rem;
   cursor: pointer;
 }
 
@@ -21,51 +160,53 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
-body {
-  @apply font-secondary text-[22px] text-secondary;
-}
-
-a {
-  @apply text-[20px] hover:text-accent transition-all duration-300;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-primary text-primary;
-}
-
-.h1 {
-  @apply text-[44px] lg:text-[84px] leading-none;
-}
-
-.h2 {
-  @apply text-[50px] leading-tight;
-}
-
-.h3 {
-  @apply text-[25px];
-}
-
-.btn {
-  @apply h-[75px] px-[30px] transition-all duration-300 text-white rounded-[18px] flex items-center gap-2;
-}
-
-.btn-primary {
-  @apply bg-primary hover:bg-primary-hover;
-}
-
-.btn-accent {
-  @apply bg-accent hover:bg-accent-hover;
-}
-
+/* Swiper override */
 .swiper-button-prev,
 .swiper-button-next {
   @apply text-accent;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+a {
+  @apply transition-colors duration-300;
+}
+a:hover { color: inherit; }
+
+/* Cursor follower hover states */
+.cursor-ring--hover {
+  width: 40px !important;
+  height: 40px !important;
+  border-color: rgba(205, 162, 116, 0.7);
+}
+.cursor-dot--hover {
+  opacity: 0 !important;
+}
+@media (hover: none) {
+  .cursor-ring, .cursor-dot { display: none !important; }
+}
+
+/* Lightbox thumbnail rail scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(205, 162, 116, 0.08);
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(205, 162, 116, 0.4);
+  border-radius: 2px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(205, 162, 116, 0.7);
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(205, 162, 116, 0.4) rgba(205, 162, 116, 0.08);
 }

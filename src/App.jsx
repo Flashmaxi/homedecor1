@@ -6,6 +6,7 @@ import Steps from "./components/steps/Steps";
 import Footer from "./components/footer/Footer";
 import Recenzije from "./components/testimonials/Recenzije";
 import DalisteZnali from "./components/didyouknow/DalisteZnali";
+import BrandMarquee from "./components/marquee/BrandMarquee";
 import ReactGA from "react-ga4";
 import { Helmet } from "react-helmet";
 import "./i18n";
@@ -16,7 +17,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>Home decor | Oplemenite svoj životni prostor</title>
+        <title>Home Decor | Oplemenite svoj životni prostor</title>
         <meta
           name="description"
           content="Home Decor RS - Vaš pouzdan partner za venecijanere, zavese, meblstofe i hotelski program. Pronađite savršene dekorativne elemente za vaš dom i poslovni prostor."
@@ -28,11 +29,14 @@ function App() {
       </Helmet>
 
       <Navbar />
-      <Hero />
-      <Service />
-      <Steps />
-      <Recenzije />
-      <DalisteZnali />
+      <main>
+        <Hero />
+        <BrandMarquee />
+        <Service />
+        <Steps />
+        <Recenzije />
+        <DalisteZnali />
+      </main>
       <Footer />
     </>
   );

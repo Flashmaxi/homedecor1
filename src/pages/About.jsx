@@ -1,66 +1,68 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/navbar/Navbar";
-import { RiPhoneFill, RiArrowRightLine } from "react-icons/ri";
-import { Helmet } from "react-helmet";
+import { RiPhoneLine, RiArrowRightUpLine } from "react-icons/ri";
 import { useTranslation } from "react-i18next";
+import PageLayout from "../components/ui/PageLayout";
+import { useReveal } from "../hooks/useReveal";
 
 export default function About() {
   const { t } = useTranslation();
+  const ref = useReveal({ stagger: 0.1 });
 
   return (
-    <>
-      <Navbar />
-      <Helmet>
-        <title>Home decor | Oplemenite svoj životni prostor</title>
-        <meta
-          name="description"
-          content="Home Decor RS - Vaš pouzdan partner za venecijanere, zavese, meblstofe i hotelski program. Pronađite savršene dekorativne elemente za vaš dom i poslovni prostor."
-        />
-        <meta
-          name="keywords"
-          content="venecijaneri, zavese, meblstofe, hotelski program, posteljine, peškiri, dekoracija, kućni tekstil, Home Decor RS"
-        />
-      </Helmet>
-      <section className="about mt-[90px] lg:mt-[200px] relative z-20 mb-[60px]">
-        <div className="container mx-auto xl:px-0">
-          <div className="flex flex-col text-center xl:flex-row xl:text-left justify-between items-center gap-8 xl:gap-[74px]">
-            <div className="flex-1 order-2 xl:order-none max-w-xl xl:max-w-[610px] flex flex-col items-center xl:items-start gap-8">
-              <h2 className="h2">{t("about.aboutTitle")}</h2>
-              <p className="text-[19px]">{t("about.aboutText")}</p>
+    <PageLayout>
+      <section ref={ref} className="section bg-cream-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
-              <div className="flex items-center justify-center xl:justify-start gap-4">
-                <div className="bg-accent/15 w-[93px] h-[93px] rounded-full flex justify-center items-center">
-                  <RiPhoneFill className="text-accent text-4xl" />
+        <div className="container mx-auto relative">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-20 items-center">
+            <div className="xl:col-span-7 order-2 xl:order-none">
+              <span data-reveal className="eyebrow mb-6 inline-flex items-center">
+                <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
+                O nama
+              </span>
+              <h1 data-reveal className="display-2 mb-8">
+                {t("about.aboutTitle")}
+              </h1>
+              <div data-reveal className="h-px w-20 bg-accent mb-8" />
+              <p data-reveal className="lead mb-10 max-w-2xl">
+                {t("about.aboutText")}
+              </p>
+
+              <div data-reveal className="flex flex-wrap items-center gap-6 mb-10">
+                <div className="bg-cream-100 w-16 h-16 rounded-full flex justify-center items-center">
+                  <RiPhoneLine className="text-accent text-2xl" />
                 </div>
-
-                <div className="text-left">
-                  <div>
-                    <a
-                      className="text-xl lg:text-2xl font-bold"
-                      href="tel:+381116435570"
-                    >
-                      +381 11 64 35 570
-                    </a>
+                <div>
+                  <div className="text-xs uppercase tracking-widest text-ink-500 mb-1">
+                    {t("about.aboutCta")}
                   </div>
-                  <div>{t("about.aboutCta")}</div>
+                  <a
+                    className="font-primary text-2xl lg:text-3xl text-primary hover:text-accent transition-colors"
+                    href="tel:+381116435570"
+                  >
+                    +381 11 64 35 570
+                  </a>
                 </div>
               </div>
-              <Link to="/kontakt" className="btn btn-primary">
-                {t("about.callCta")}{" "}
-                <RiArrowRightLine className="text-accent" />
+
+              <Link data-reveal to="/kontakt" className="btn-primary group">
+                {t("about.callCta")}
+                <RiArrowRightUpLine className="text-accent text-lg transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>
 
-            <div className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-[453px] xl:mx-0">
-              <img
-                className="rounded-tr-[160px] rounded-bl-[120px]"
-                src="/assets/about/aboutimg.avif"
-                alt=""
-              />
+            <div className="xl:col-span-5 order-1 xl:order-none">
+              <div data-reveal className="relative aspect-[4/5] frame-luxe" style={{ borderTopRightRadius: "140px", borderBottomLeftRadius: "100px" }}>
+                <img
+                  src="/assets/about/aboutimg.avif"
+                  alt="O nama"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </PageLayout>
   );
 }
