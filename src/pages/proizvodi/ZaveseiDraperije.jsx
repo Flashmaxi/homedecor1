@@ -10,7 +10,7 @@ export default function ZaveseiDraperije() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("zavese.naslov")}
       paragraphs={[t("zavese.tekst1"), t("zavese.tekst2")]}
       image={image}

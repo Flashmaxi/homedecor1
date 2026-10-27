@@ -25,14 +25,13 @@ export default function Contact() {
           <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
             <span data-reveal className="eyebrow mb-5 inline-flex items-center">
               <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
-              Posetite nas
+              {t("kontakt.eyebrow")}
             </span>
             <h1 data-reveal className="display-2 mb-6">
               {t("kontakt.kontaktTitle")}
             </h1>
             <p data-reveal className="lead">
-              Naš tim sa zadovoljstvom će vas dočekati u salonu na Vračaru, ili
-              vam odgovoriti na pitanja putem telefona i email-a.
+              {t("kontakt.opis")}
             </p>
           </div>
 
@@ -56,7 +55,7 @@ export default function Contact() {
                 eyebrow={t("kontakt.kontaktAdresa")}
                 href="https://www.google.com/maps/place/Ju%C5%BEni+bulevar+130,+Beograd/"
               >
-                Južni bulevar 130<br />Vračar, Beograd
+                Južni bulevar 130<br />{t("kontakt.grad")}
               </ContactBlock>
 
               <ContactBlock
@@ -64,9 +63,11 @@ export default function Contact() {
                 icon={<RiTimeLine className="text-accent text-2xl" />}
                 eyebrow={t("kontakt.kontaktVreme")}
               >
-                Pon – Pet · 09h–20h<br />
-                Subota · 09h–16h<br />
-                <span className="text-ink-500">Nedelja · Zatvoreno</span>
+                {t("kontakt.radniDani")} · 09h–20h<br />
+                {t("kontakt.subota")} · 09h–16h<br />
+                <span className="text-ink-500">
+                  {t("kontakt.nedelja")} · {t("kontakt.zatvoreno")}
+                </span>
               </ContactBlock>
 
               <ContactBlock

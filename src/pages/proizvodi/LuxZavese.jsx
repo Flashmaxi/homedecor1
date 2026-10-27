@@ -9,7 +9,7 @@ export default function LuxZavese() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("lux.naslov")}
       paragraphs={[t("lux.tekst")]}
       image={image}

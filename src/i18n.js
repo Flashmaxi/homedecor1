@@ -13,6 +13,39 @@ i18next
           hero: {
             heroNaslov: "Oplemenite svoj životni prostor.",
             heroBtnText: "Pogledajte ponudu",
+            heroEyebrow: "Home Decor · Beograd",
+            heroOpis:
+              "Otmeni tekstil, zavese, draperije i hotelska oprema — krojeni prema vašem prostoru, izabrani sa pažnjom prema detalju.",
+            heroPrica: "Naša priča",
+            statIskustvo: "Godina iskustva",
+            statProjekti: "Realizovanih projekata",
+            statKategorije: "Kategorija proizvoda",
+            badgeNaslov: "Atelje za enterijer",
+            badgeOd: "od 2004",
+            scroll: "Skrolujte",
+          },
+          cta: {
+            eyebrow: "Recite nam o vašem prostoru",
+            naslov: "Spremni da oplemenite",
+            naslovAkcent: "vaš dom?",
+            tekst:
+              "Posetite naš salon na Vračaru ili nas pozovite — pomoći ćemo vam da pronađete savršen tekstil i opremu za vaš prostor.",
+            dugme: "Zakažite konsultaciju",
+          },
+          common: {
+            nasaPonuda: "Naša ponuda",
+            pogledajKolekciju: "Pogledaj kolekciju",
+            procesSaradnje: "Proces saradnje",
+            inspiracija: "Inspiracija",
+            reciKlijenata: "Reči klijenata",
+            partneri: "Partneri i brendovi",
+            kolekcija: "Kolekcija",
+            galerija: "Galerija",
+          },
+          proizvodi: {
+            eyebrow: "Katalog",
+            naslov: "Naši proizvodi",
+            opis: "Pažljivo birana kolekcija tekstila i dekorativnih elemenata — zavese, draperije, tapete, venecijaneri i hotelski program.",
           },
           navigacija: {
             adresa: "Adresa:",
@@ -80,23 +113,31 @@ i18next
               "Da li ste arhitekta ili dizajner enterijera u potrazi za novim prilikama? Ako jeste, imamo izvanrednu ponudu za vas! Naša kompanija nudi ekskluzivne pogodnosti saradnje za stručnjake poput Vas. Sa našom ponudom dolazi ne samo podrška za vašu kreativnost, već i prilika za profesionalni razvoj, tako da je ovo sjajna prilika da se pridružite našem timu, kako bismo zajedno stvarali izvanredne stvari.",
             arhitekteCta:
               "Ako želite da saznate više o našoj ponudi, kontaktirajte nas.",
-            arhitektaIme: "Ime i prezime",
-            arthitektaKompanija: "Kompanija",
-            arhiEmail: "Email",
-            arhiTelefon: "Telefon",
-            arhiPoruka: "Poruka",
-            arthiBtnText: "Pošalji",
+            mailNaslov: "Pišite nam direktno",
+            mailTekst:
+              "Pošaljite nam par reči o sebi i projektu na kojem radite — javićemo vam se u najkraćem roku sa detaljima saradnje.",
+            mailDugme: "Pošaljite email",
+            mailSubject: "Saradnja — arhitekte i dizajneri enterijera",
           },
           kontakt: {
             kontaktTitle: "Poseti našu lokaciju",
             kontaktAdresa: "Naša adresa",
             kontaktVreme: "Radno vreme",
             kontaktBroj: "Kontakt",
+            eyebrow: "Posetite nas",
+            opis: "Naš tim sa zadovoljstvom će vas dočekati u salonu na Vračaru, ili vam odgovoriti na pitanja putem telefona i email-a.",
+            grad: "Vračar, Beograd",
+            radniDani: "Pon – Pet",
+            subota: "Subota",
+            nedelja: "Nedelja",
+            zatvoreno: "Zatvoreno",
           },
           copyright: {
             tekst: "sva prava zadržana",
           },
           footer: {
+            opis: "atelje za enterijer i tekstil sa tradicijom dužom od dve decenije.",
+            grad: "Beograd · Vračar",
             kolona1: {
               title: "Stranice",
               one: "Hotelski program",
@@ -162,6 +203,8 @@ i18next
           },
           zebraRolo: {
             zebraTitle: "Zebra zavese",
+            zebraEyebrow: "01 · Zebra zavese",
+            roloEyebrow: "02 · Rolo zavese",
             roloTitle: "Rolo zavese",
             zebraTekst:
               "Zebra zavese su rolo zavese koje imaju višenamensku funkcionalnost, jer mogu da zamene klasičnu zavesu, draperiju i garnišnu. Vrlo brzo su osvojile kako svetsko, tako i domaće tržište. Izrađene su od dve vrste antistatik materijala, što znači da ne skupljaju ni prašinu ni mirise, a koji su različite svetlopropustljivosti. Zavese mogu biti spakovane u aluminijumskoj kutiji, a mogu biti i otvorenog tipa, u zavisnosti od Vaših potreba. Mogu se montirati na zid, plafon ili na sam okvir prozora. Količinu svetla koja ulazi u prostoriju regulišete sami, ručno pomoću lančića ili ugradnjom elektromotora i putem daljinskog upravljača. Vrlo su jednostavne za montažu i pogodne su za uređenje kako poslovnih prostora, tako i svih prostorija u jednom domu. Zebra zavese izrađujemo po merama Vaših prozora, a naš veliki izbor materijala i dezena će sigurno moći da izađe u susret svakoj Vašoj želji i zamisli.",
@@ -210,6 +253,39 @@ i18next
           hero: {
             heroNaslov: "Refine your living space.",
             heroBtnText: "Check products",
+            heroEyebrow: "Home Decor · Belgrade",
+            heroOpis:
+              "Refined textiles, curtains, draperies and hotel furnishings — tailored to your space and chosen with attention to detail.",
+            heroPrica: "Our story",
+            statIskustvo: "Years of experience",
+            statProjekti: "Completed projects",
+            statKategorije: "Product categories",
+            badgeNaslov: "Interior design atelier",
+            badgeOd: "since 2004",
+            scroll: "Scroll",
+          },
+          cta: {
+            eyebrow: "Tell us about your space",
+            naslov: "Ready to refine",
+            naslovAkcent: "your home?",
+            tekst:
+              "Visit our showroom in Vračar or give us a call — we will help you find the perfect textiles and furnishings for your space.",
+            dugme: "Book a consultation",
+          },
+          common: {
+            nasaPonuda: "Our offer",
+            pogledajKolekciju: "View collection",
+            procesSaradnje: "How we work",
+            inspiracija: "Inspiration",
+            reciKlijenata: "Client testimonials",
+            partneri: "Partners and brands",
+            kolekcija: "Collection",
+            galerija: "Gallery",
+          },
+          proizvodi: {
+            eyebrow: "Catalogue",
+            naslov: "Our products",
+            opis: "A carefully curated collection of textiles and decorative elements — curtains, draperies, wallpapers, Venetian blinds and our hotel program.",
           },
           navigacija: {
             adresa: "Address:",
@@ -278,23 +354,31 @@ i18next
               "Are you an architect or interior designer looking for new opportunities? If so, we have an exceptional offer for you! Our company provides exclusive collaboration benefits for professionals like you. Our offer not only supports your creativity but also provides opportunities for professional development. This is a fantastic chance to join our team and create extraordinary things together.",
             arhitekteCta:
               "If you want to learn more about our offer, please contact us.",
-            arhitektaIme: "Full name",
-            arthitektaKompanija: "Company",
-            arhiEmail: "Email",
-            arhiTelefon: "Phone",
-            arhiPoruka: "Message",
-            arthiBtnText: "Send",
+            mailNaslov: "Write to us directly",
+            mailTekst:
+              "Send us a few words about yourself and the project you are working on — we will get back to you shortly with collaboration details.",
+            mailDugme: "Send an email",
+            mailSubject: "Collaboration — architects and interior designers",
           },
           kontakt: {
             kontaktTitle: "Visit our location",
             kontaktAdresa: "Our address",
             kontaktVreme: "Working hours",
             kontaktBroj: "Contact",
+            eyebrow: "Visit us",
+            opis: "Our team will be happy to welcome you at our showroom in Vračar, or answer your questions by phone and email.",
+            grad: "Vračar, Belgrade",
+            radniDani: "Mon – Fri",
+            subota: "Saturday",
+            nedelja: "Sunday",
+            zatvoreno: "Closed",
           },
           copyright: {
             tekst: "all rights reserved",
           },
           footer: {
+            opis: "an interior and textile atelier with a tradition of more than two decades.",
+            grad: "Belgrade · Vračar",
             kolona1: {
               title: "Pages",
               one: "Hotel Program",
@@ -360,6 +444,8 @@ i18next
           },
           zebraRolo: {
             zebraTitle: "Zebra blinds",
+            zebraEyebrow: "01 · Zebra blinds",
+            roloEyebrow: "02 · Roller blinds",
             roloTitle: "Roller blinds",
             zebraTekst:
               "Zebra blinds are roller blinds with multifunctional properties, capable of replacing traditional curtains, draperies, and curtain rods. They quickly became popular in both global and local markets. Made from two types of antistatic materials, zebra blinds do not attract dust or odors and have varying degrees of light permeability. They can be packed in an aluminum casing or be open type, depending on your needs. They can be mounted on the wall, ceiling, or directly on the window frame. You can manually control the amount of light entering the room with a chain or by installing a motor and using a remote control. Easy to install, zebra blinds are suitable for both commercial spaces and all rooms in a home. We custom-make zebra blinds to your window measurements, and our wide selection of materials and designs will surely meet any of your desires and ideas.",

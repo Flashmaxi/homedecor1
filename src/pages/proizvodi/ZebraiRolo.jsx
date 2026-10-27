@@ -41,7 +41,7 @@ export default function ZebraiRolo() {
             <div className="xl:col-span-7 order-2 xl:order-none">
               <span data-reveal className="eyebrow mb-6 inline-flex items-center">
                 <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
-                01 · Zebra zavese
+                {t("zebraRolo.zebraEyebrow")}
               </span>
               <h1 data-reveal className="display-2 mb-8">
                 {t("zebraRolo.zebraTitle")}
@@ -74,7 +74,7 @@ export default function ZebraiRolo() {
             <div className="xl:col-span-7">
               <span data-reveal className="eyebrow mb-6 inline-flex items-center">
                 <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
-                02 · Rolo zavese
+                {t("zebraRolo.roloEyebrow")}
               </span>
               <h2 data-reveal className="display-2 mb-8">
                 {t("zebraRolo.roloTitle")}
@@ -87,7 +87,7 @@ export default function ZebraiRolo() {
           <div data-reveal>
             <div className="flex items-center gap-3 mb-10">
               <span className="h-px w-12 bg-accent" />
-              <span className="eyebrow">Galerija</span>
+              <span className="eyebrow">{t("common.galerija")}</span>
             </div>
             <Gallery photos={rolo} />
           </div>

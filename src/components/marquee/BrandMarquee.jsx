@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 const BRANDS = [
   "Adeko",
   "FD",
@@ -15,6 +17,7 @@ const BRANDS = [
 ];
 
 export default function BrandMarquee() {
+  const { t } = useTranslation();
   // Double the list for a seamless loop
   const items = [...BRANDS, ...BRANDS];
 
@@ -23,7 +26,7 @@ export default function BrandMarquee() {
       <div className="container mx-auto mb-8 lg:mb-10">
         <div className="flex items-center justify-center gap-3">
           <span className="h-px w-10 bg-accent" />
-          <span className="eyebrow">Partneri i brendovi</span>
+          <span className="eyebrow">{t("common.partneri")}</span>
           <span className="h-px w-10 bg-accent" />
         </div>
       </div>

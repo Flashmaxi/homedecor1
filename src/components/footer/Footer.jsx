@@ -16,24 +16,23 @@ export default function Footer() {
           <div>
             <span data-reveal className="eyebrow text-accent mb-5 inline-block">
               <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
-              Recite nam o vašem prostoru
+              {t("cta.eyebrow")}
             </span>
             <h2 data-reveal className="font-primary text-4xl lg:text-6xl text-cream-50 leading-[1.05]">
-              Spremni da oplemenite{" "}
-              <em className="not-italic text-accent">vaš dom?</em>
+              {t("cta.naslov")}{" "}
+              <em className="not-italic text-accent">{t("cta.naslovAkcent")}</em>
             </h2>
           </div>
           <div className="flex flex-col items-start lg:items-end gap-6">
             <p data-reveal className="text-cream-100/70 max-w-md text-[15px] leading-relaxed">
-              Posetite naš salon na Vračaru ili nas pozovite — pomoći ćemo vam
-              da pronađete savršen tekstil i opremu za vaš prostor.
+              {t("cta.tekst")}
             </p>
             <Link
               data-reveal
               to="/kontakt"
               className="group inline-flex items-center gap-4 text-cream-50 hover:text-accent transition-colors"
             >
-              <span className="font-primary text-2xl">Zakažite konsultaciju</span>
+              <span className="font-primary text-2xl">{t("cta.dugme")}</span>
               <span className="w-12 h-12 rounded-full border border-cream-50/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-primary transition-all duration-500">
                 <RiArrowRightUpLine className="text-xl" />
               </span>
@@ -48,8 +47,7 @@ export default function Footer() {
               <img src={Logo} alt="Home Decor" className="h-14 w-auto" />
             </Link>
             <p className="text-cream-100/70 text-[15px] leading-relaxed mb-8 max-w-sm">
-              {t("hero.heroNaslov")} — atelje za enterijer i tekstil sa
-              tradicijom dužom od dve decenije.
+              {t("hero.heroNaslov")} — {t("footer.opis")}
             </p>
             <div className="flex gap-3">
               <a
@@ -137,7 +135,7 @@ export default function Footer() {
 
         <div data-reveal className="border-t border-cream-100/10 py-8 flex flex-col md:flex-row items-center justify-between gap-3 text-xs uppercase tracking-widest text-cream-100/50">
           <p>© {new Date().getFullYear()} Home Decor · {t("copyright.tekst")}</p>
-          <p>Beograd · Vračar</p>
+          <p>{t("footer.grad")}</p>
         </div>
       </div>
     </footer>

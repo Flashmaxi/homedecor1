@@ -14,7 +14,7 @@ export default function Service() {
       <div className="container mx-auto">
         <div className="mb-16 lg:mb-24">
           <SectionHeading
-            eyebrow="Naša ponuda"
+            eyebrow={t("common.nasaPonuda")}
             title={t("usluge.uslugeNaslov")}
             subtitle={t("usluge.uslugeOpis")}
           />
@@ -50,7 +50,7 @@ export default function Service() {
                   <div className="flex items-center gap-3 text-cream-50">
                     <span className="h-px w-8 bg-accent" />
                     <span className="text-xs uppercase tracking-widest">
-                      Pogledaj kolekciju
+                      {t("common.pogledajKolekciju")}
                     </span>
                   </div>
                 </div>

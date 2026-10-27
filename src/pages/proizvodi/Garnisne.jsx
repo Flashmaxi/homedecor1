@@ -10,7 +10,7 @@ export default function Garnisne() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("garn.naslov")}
       paragraphs={[t("garn.tekst")]}
       image={image}

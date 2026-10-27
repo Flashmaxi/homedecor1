@@ -29,7 +29,7 @@ export default function Steps() {
       <div className="container mx-auto">
         <div className="mb-16 lg:mb-24">
           <SectionHeading
-            eyebrow="Proces saradnje"
+            eyebrow={t("common.procesSaradnje")}
             title={t("steps.stepTitle")}
           />
         </div>

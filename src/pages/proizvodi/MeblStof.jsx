@@ -10,7 +10,7 @@ export default function MeblStof() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("mebl.naslov")}
       paragraphs={[t("mebl.tekst")]}
       image={image}

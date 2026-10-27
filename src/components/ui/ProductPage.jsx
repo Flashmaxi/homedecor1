@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import PageLayout from "./PageLayout";
 import Gallery from "./Gallery";
 import { Nazad } from "../nazad/Nazad";
@@ -11,6 +12,7 @@ export default function ProductPage({
   photos = [],
   seo,
 }) {
+  const { t, i18n } = useTranslation();
   const ref = useReveal({ stagger: 0.1 });
 
   return (
@@ -56,10 +58,13 @@ export default function ProductPage({
               <div className="flex items-center justify-between mb-10">
                 <div className="flex items-center gap-3">
                   <span className="h-px w-12 bg-accent" />
-                  <span className="eyebrow">Galerija</span>
+                  <span className="eyebrow">{t("common.galerija")}</span>
                 </div>
                 <span className="hidden md:block text-xs uppercase tracking-widest text-ink-500">
-                  {photos.length} slik{photos.length === 1 ? "a" : photos.length < 5 ? "e" : "a"}
+                  {photos.length}{" "}
+                  {i18n.language === "en"
+                    ? photos.length === 1 ? "photo" : "photos"
+                    : `slik${photos.length === 1 ? "a" : photos.length < 5 ? "e" : "a"}`}
                 </span>
               </div>
               <Gallery photos={photos} />

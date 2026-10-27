@@ -50,7 +50,7 @@ export default function DalisteZnali() {
       <div className="container mx-auto relative">
         <div className="mb-12">
           <SectionHeading
-            eyebrow="Inspiracija"
+            eyebrow={t("common.inspiracija")}
             title={t("dyk.title")}
             subtitle={t("dyk.text")}
             light

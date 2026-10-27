@@ -8,11 +8,14 @@ import Recenzije from "./components/testimonials/Recenzije";
 import DalisteZnali from "./components/didyouknow/DalisteZnali";
 import BrandMarquee from "./components/marquee/BrandMarquee";
 import Seo, { localBusinessSchema } from "./components/ui/Seo";
-import ReactGA from "react-ga4";
+import ReactGAModule from "react-ga4";
 import "./i18n";
 
+// react-ga4 is CJS with a nested `default` export that Vite 8 doesn't unwrap
+const ReactGA = ReactGAModule.default ?? ReactGAModule;
+ReactGA.initialize("G-6FDMQF60C7");
+
 function App() {
-  ReactGA.initialize("G-6FDMQF60C7");
 
   return (
     <>

@@ -10,7 +10,7 @@ export default function PosteljinePeskiri() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("posteljina.naslov")}
       paragraphs={[t("posteljina.tekst")]}
       image={image}

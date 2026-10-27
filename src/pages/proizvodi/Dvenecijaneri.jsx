@@ -10,7 +10,7 @@ export default function Dvenecijaneri() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("dv.naslov")}
       paragraphs={[t("dv.tekst")]}
       image={image}

@@ -10,7 +10,7 @@ export default function Tapete() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("tapete.naslov")}
       paragraphs={[t("tapete.tekst")]}
       image={image}

@@ -9,7 +9,7 @@ export default function PliseSistemi() {
 
   return (
     <ProductPage
-      eyebrow="Kolekcija"
+      eyebrow={t("common.kolekcija")}
       title={t("plise.naslov")}
       paragraphs={[t("plise.tekst")]}
       image={image}

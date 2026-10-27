@@ -1,40 +1,18 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { RiArrowRightUpLine, RiCheckLine, RiErrorWarningLine } from "react-icons/ri";
+import { RiArrowRightUpLine, RiMailLine } from "react-icons/ri";
 import { useTranslation } from "react-i18next";
 import PageLayout from "../components/ui/PageLayout";
 import { useReveal } from "../hooks/useReveal";
 
+const EMAIL = "office@homedecor.rs";
+
 export default function Arhitekte() {
-  const [status, setStatus] = useState({ type: null, message: "" });
-  const [sending, setSending] = useState(false);
-  const form = useRef();
   const { t } = useTranslation();
   const ref = useReveal({ stagger: 0.08 });
+  const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
+    t("arhitekte.mailSubject")
+  )}`;
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setSending(true);
-    setStatus({ type: null, message: "" });
-
-    emailjs
-      .sendForm("service_s1ko0qh", "template_r4b1nmm", form.current, {
-        publicKey: "XyctHlwlL5OVaodPG",
-      })
-      .then(
-        () => {
-          setStatus({ type: "success", message: "Poruka je uspešno poslata. Javljamo se uskoro." });
-          form.current.reset();
-          setSending(false);
-        },
-        () => {
-          setStatus({ type: "error", message: "Došlo je do greške prilikom slanja. Pokušajte ponovo." });
-          setSending(false);
-        }
-      );
-  };
-
-    return (
+  return (
     <PageLayout
       seo={{
         title: "Za arhitekte i dizajnere enterijera — Saradnja",
@@ -51,9 +29,9 @@ export default function Arhitekte() {
         <div className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
         <div className="container mx-auto relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             {/* Left text */}
-            <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
+            <div className="lg:col-span-6">
               <span data-reveal className="eyebrow mb-6 inline-flex items-center">
                 <span className="inline-block w-6 h-px bg-accent align-middle mr-3" />
                 Home Decor
@@ -70,103 +48,46 @@ export default function Arhitekte() {
               </p>
             </div>
 
-            {/* Form */}
-            <div className="lg:col-span-7">
-              <form
-                ref={form}
-                onSubmit={sendEmail}
+            {/* Email card */}
+            <div className="lg:col-span-6">
+              <div
                 data-reveal
-                className="bg-cream-100 p-8 lg:p-12 space-y-7"
+                className="bg-cream-100 p-8 lg:p-12"
+                style={{ borderTopRightRadius: "120px" }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-                  <Field
-                    label={t("arhitekte.arhitektaIme")}
-                    name="user_name"
-                    type="text"
-                  />
-                  <Field
-                    label={t("arhitekte.arthitektaKompanija")}
-                    name="company_name"
-                    type="text"
-                  />
-                  <Field
-                    label={t("arhitekte.arhiEmail")}
-                    name="user_email"
-                    type="email"
-                  />
-                  <Field
-                    label={t("arhitekte.arhiTelefon")}
-                    name="user_number"
-                    type="tel"
-                  />
-                </div>
+                <h2 className="font-primary text-3xl lg:text-4xl text-primary leading-tight mb-4">
+                  {t("arhitekte.mailNaslov")}
+                </h2>
+                <p className="text-ink-500 text-[15px] leading-relaxed mb-10 max-w-md">
+                  {t("arhitekte.mailTekst")}
+                </p>
 
-                <Field
-                  label={t("arhitekte.arhiPoruka")}
-                  name="message"
-                  type="textarea"
-                />
-
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4">
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className="btn-primary group disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {sending ? "Šaljemo..." : t("arhitekte.arthiBtnText")}
-                    <RiArrowRightUpLine className="text-accent text-lg transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </button>
-
-                  {status.message && (
-                    <div
-                      className={`flex items-center gap-2 text-sm ${
-                        status.type === "success" ? "text-green-700" : "text-red-700"
-                      }`}
-                    >
-                      {status.type === "success" ? (
-                        <RiCheckLine className="text-lg" />
-                      ) : (
-                        <RiErrorWarningLine className="text-lg" />
-                      )}
-                      {status.message}
+                <a
+                  href={mailto}
+                  className="group flex items-center gap-5 border-t border-primary/10 pt-8 mb-10 transition-colors duration-300 hover:border-accent"
+                >
+                  <div className="w-14 h-14 bg-cream-50 flex items-center justify-center shrink-0 group-hover:bg-accent/10 transition-colors duration-500">
+                    <RiMailLine className="text-accent text-2xl" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[11px] uppercase tracking-widest text-accent mb-2">
+                      Email
                     </div>
-                  )}
-                </div>
-              </form>
+                    <div className="font-primary text-xl sm:text-2xl text-primary leading-snug break-words transition-colors duration-300 group-hover:text-accent">
+                      {EMAIL}
+                    </div>
+                  </div>
+                </a>
+
+                <a href={mailto} className="btn-primary group">
+                  {t("arhitekte.mailDugme")}
+                  <RiArrowRightUpLine className="text-accent text-lg transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </PageLayout>
-  );
-}
-
-function Field({ label, name, type = "text" }) {
-  const isTextarea = type === "textarea";
-  return (
-    <div className="field-luxe">
-      {isTextarea ? (
-        <textarea
-          id={name}
-          name={name}
-          rows={5}
-          required
-          placeholder=" "
-          className="input-luxe resize-none"
-        />
-      ) : (
-        <input
-          id={name}
-          name={name}
-          type={type}
-          required
-          placeholder=" "
-          className="input-luxe"
-        />
-      )}
-      <label htmlFor={name} className="label-luxe">
-        {label}
-      </label>
-    </div>
   );
 }

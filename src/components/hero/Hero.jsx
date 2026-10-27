@@ -94,7 +94,7 @@ export default function Hero() {
           <div className="lg:col-span-7 relative z-10">
             <div className="flex items-center gap-3 mb-8" data-hero-eyebrow>
               <span className="h-px w-12 bg-accent" />
-              <span className="eyebrow">Home Decor · Beograd</span>
+              <span className="eyebrow">{t("hero.heroEyebrow")}</span>
             </div>
 
             <h1 className="display-1 mb-8 overflow-hidden">
@@ -121,8 +121,7 @@ export default function Hero() {
               data-hero-sub
               className="lead max-w-xl mb-10"
             >
-              Otmeni tekstil, zavese, draperije i hotelska oprema — krojeni
-              prema vašem prostoru, izabrani sa pažnjom prema detalju.
+              {t("hero.heroOpis")}
             </p>
 
             <div data-hero-cta className="flex flex-wrap items-center gap-5">
@@ -135,18 +134,18 @@ export default function Hero() {
                 className="btn-link"
               >
                 <RiPlayCircleLine className="text-base text-accent" />
-                Naša priča
+                {t("hero.heroPrica")}
               </Link>
             </div>
 
             <div className="mt-16 lg:mt-20 grid grid-cols-3 gap-8 max-w-xl">
               {[
-                { value: 20, suffix: "+", label: "Godina iskustva" },
-                { value: 1500, suffix: "+", label: "Realizovanih projekata" },
-                { value: 9, suffix: "", label: "Kategorija proizvoda" },
+                { value: 20, suffix: "+", label: t("hero.statIskustvo") },
+                { value: 1500, suffix: "+", label: t("hero.statProjekti") },
+                { value: 9, suffix: "", label: t("hero.statKategorije") },
               ].map((stat) => (
                 <div
-                  key={stat.label}
+                  key={stat.value}
                   data-hero-meta
                   className="border-l border-accent/30 pl-4"
                 >
@@ -186,10 +185,10 @@ export default function Hero() {
               </div>
               <div>
                 <div className="font-primary text-xl text-primary leading-tight">
-                  Atelje za enterijer
+                  {t("hero.badgeNaslov")}
                 </div>
                 <div className="text-xs uppercase tracking-widest text-ink-500 mt-1">
-                  od 2004
+                  {t("hero.badgeOd")}
                 </div>
               </div>
             </div>
@@ -199,7 +198,7 @@ export default function Hero() {
 
       {/* Scroll cue */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-3 text-ink-500">
-        <span className="text-[10px] uppercase tracking-ultra">Scroll</span>
+        <span className="text-[10px] uppercase tracking-ultra">{t("hero.scroll")}</span>
         <span className="h-12 w-px bg-ink-500/30 relative overflow-hidden">
           <span className="absolute top-0 left-0 h-1/2 w-full bg-accent animate-pulse" />
         </span>

@@ -36,7 +36,7 @@ export default function Recenzije() {
       <div className="container mx-auto">
         <div className="mb-16">
           <SectionHeading
-            eyebrow="Reči klijenata"
+            eyebrow={t("common.reciKlijenata")}
             title={t("recenzije.recenzijaTitle")}
           />
         </div>

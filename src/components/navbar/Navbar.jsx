@@ -4,7 +4,10 @@ import { RiMenuLine, RiCloseLine, RiPhoneLine, RiMapPin2Line } from "react-icons
 import Logo from "../../../public/assets/hdlogo.svg";
 import "../../i18n";
 import { useTranslation } from "react-i18next";
-import Flag from "react-world-flags";
+import FlagModule from "react-world-flags";
+
+// react-world-flags is a UMD build with a nested `default` export that Vite 8 doesn't unwrap
+const Flag = FlagModule.default ?? FlagModule;
 
 export default function Navbar({ variant = "solid" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
